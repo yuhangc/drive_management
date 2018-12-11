@@ -21,7 +21,7 @@ def main():
     store = file.Storage('token.json')
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        flow = client.flow_from_clientsecrets('client_id.json', SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('drive', 'v3', http=creds.authorize(Http()))
 
@@ -150,13 +150,13 @@ if __name__ == '__main__':
     store = file.Storage('token.json')
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        flow = client.flow_from_clientsecrets('client_id.json', SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('drive', 'v3', http=creds.authorize(Http()))
 
     # list_owners(service, 'root')
 
-    folder_id = '1-6qBe1SH29v6ISXXsJyA2mn_hVzV7wLU'
-    new_owner = 'allisono@stanford.edu'
+    folder_id = '1TOGthj-PQfTD_zRBh1d6FAr3bRSSB_MV'
+    new_owner = 'cssimps@stanford.edu'
 
     process_all_files(service, new_owner, folder_id=folder_id, verbose=True)
